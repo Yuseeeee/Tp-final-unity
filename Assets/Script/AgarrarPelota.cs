@@ -6,19 +6,21 @@ public class AgarrarPelota : MonoBehaviour
 {
     public float pickupDistance = 3f;
     public LayerMask ballLayer;
-    public TirarPelota TirarPelota;           
-    public Transform PuntoDeAgarre;           
+    public TirarPelota TirarPelota;
+    public Transform PuntoDeAgarre;
 
     void Update()
     {
         TryPickupBall();
-        Debug.DrawRay(transform.position, transform.forward * pickupDistance, Color.red);
 
+        Debug.DrawRay(Camera.main.transform.position,
+                      Camera.main.transform.forward * pickupDistance,
+                      Color.red);
     }
 
     void TryPickupBall()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, pickupDistance, ballLayer))
@@ -35,9 +37,11 @@ public class AgarrarPelota : MonoBehaviour
     void Pickup(Rigidbody ball)
     {
         TirarPelota.currentBall = ball;
-        ball.isKinematic = true;                        
-        ball.transform.position = PuntoDeAgarre.position;   
+        ball.isKinematic = true;
+
+        ball.transform.position = PuntoDeAgarre.position;
         ball.transform.rotation = PuntoDeAgarre.rotation;
-        ball.transform.parent = PuntoDeAgarre;              
+
+        ball.transform.parent = PuntoDeAgarre;
     }
 }
