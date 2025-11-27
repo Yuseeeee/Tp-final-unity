@@ -1446,6 +1446,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: dbff6b4f28b01754db68d652204e7628, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 121.21
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: dbff6b4f28b01754db68d652204e7628, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.91
@@ -1812,6 +1816,14 @@ PrefabInstance:
     - target: {fileID: 100008, guid: dbff6b4f28b01754db68d652204e7628, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: dbff6b4f28b01754db68d652204e7628, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0005843
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: dbff6b4f28b01754db68d652204e7628, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 121.21001
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: dbff6b4f28b01754db68d652204e7628, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2797,7 +2809,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!54 &1870726636
 Rigidbody:
