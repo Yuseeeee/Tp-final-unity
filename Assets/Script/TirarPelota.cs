@@ -44,12 +44,9 @@ public class TirarPelota : MonoBehaviour
     {
         isCharging = true;
         chargeTimer = 0f;
-
+    
         if (sliderFuerza != null)
         sliderFuerza.value = 0f;
-
-        if (changeScaleWhileCharging)
-            currentBall.transform.localScale = Vector3.one; 
     }
 
     void ContinueCharge()
@@ -61,8 +58,8 @@ public class TirarPelota : MonoBehaviour
         {
             float t = chargeTimer / maxChargeTime;
             float scale = 1f + (maxScaleMultiplier - 1f) * t;
-            currentBall.transform.localScale = Vector3.one * scale;
         }
+
         if (sliderFuerza != null)
         {
             float t = chargeTimer / maxChargeTime;   // Va de 0 a 1
@@ -107,10 +104,10 @@ public class TirarPelota : MonoBehaviour
         rb.AddTorque(Vector3.right * 1.5f, ForceMode.Impulse);
 
         if (changeScaleWhileCharging)
-            currentBall.transform.localScale = Vector3.one;
-
         currentBall = null;
         isCharging = false;
         chargeTimer = 0f;
     }
 }
+
+

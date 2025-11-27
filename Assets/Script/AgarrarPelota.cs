@@ -11,6 +11,7 @@ public class AgarrarPelota : MonoBehaviour
 
     void Update()
     {
+
         TryPickupBall();
 
         Debug.DrawRay(Camera.main.transform.position,
