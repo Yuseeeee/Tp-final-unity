@@ -6,7 +6,7 @@ public class TirarPelota : MonoBehaviour
 {
     public Transform shootPoint;            
     public Rigidbody currentBall;           
-
+    public UnityEngine.UI.Slider sliderFuerza;
     public float minForce = 6f;            
     public float maxForce = 18f;            
     public float maxChargeTime = 1.2f;      
@@ -45,7 +45,9 @@ public class TirarPelota : MonoBehaviour
         isCharging = true;
         chargeTimer = 0f;
 
-        
+        if (sliderFuerza != null)
+        sliderFuerza.value = 0f;
+
         if (changeScaleWhileCharging)
             currentBall.transform.localScale = Vector3.one; 
     }
@@ -61,7 +63,13 @@ public class TirarPelota : MonoBehaviour
             float scale = 1f + (maxScaleMultiplier - 1f) * t;
             currentBall.transform.localScale = Vector3.one * scale;
         }
-    }
+        if (sliderFuerza != null)
+        {
+            float t = chargeTimer / maxChargeTime;   // Va de 0 a 1
+            sliderFuerza.value = t;
+        }
+
+    }   
 
     void ReleaseAndThrow()
     {
@@ -79,6 +87,10 @@ public class TirarPelota : MonoBehaviour
         Vector3 direction;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hit;
+        
+        if (sliderFuerza != null)
+        sliderFuerza.value = 0f;
+
         if (Physics.Raycast(ray, out hit, 100f))
         {
             direction = (hit.point - shootPoint.position).normalized;
